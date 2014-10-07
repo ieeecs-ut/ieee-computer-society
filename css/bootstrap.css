@@ -893,7 +893,7 @@ body {
   font-size: 15px;
   line-height: 1.4;
   color: #222222;
-  background-color: #ffffff;
+  background-color: #f0f0f0;
 }
 input,
 button,
@@ -1208,9 +1208,7 @@ a.bg-danger:hover {
   background-color: #e4b9b9;
 }
 .page-header {
-  padding-bottom: 9.5px;
-  margin: 42px 0 21px;
-  border-bottom: 1px solid #dddddd;
+  margin: 21px 0 21px;
 }
 ul,
 ol {
@@ -4536,6 +4534,10 @@ a.list-group-item.active > .badge,
   margin-bottom: 30px;
   color: inherit;
   background-color: #fafafa;
+}
+.jumbotron-header {
+  padding: 0px;
+  margin-bottom: 0px;
 }
 .jumbotron h1,
 .jumbotron .h1 {
