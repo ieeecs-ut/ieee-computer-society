@@ -1,10 +1,14 @@
-* TODO Create Pagination for page navigation
-* TODO Create jumbotron image
-* TODO Create links on navigation bar
-* TODO [0/5] Create Assocated pages
-** TODO Home
-** TODO About
-** TODO Officers
-** TODO Corporate
-** TODO Student
+* DONE Create Pagination for page navigation
+* TODO Create jumbotron image for front page
+* DONE [5/5] Create links on navigation bar
+** DONE Home
+** DONE About
+** DONE Officers
+** DONE Corporate
+** DONE Student
+* TODO [4/4] Populate pages with content
+** DONE About
+** DONE Officers
+** DONE Corporate
+** DONE Student
 For lectures and files we may want to host
