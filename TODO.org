@@ -6,9 +6,10 @@
 ** DONE Officers
 ** DONE Corporate
 ** DONE Student
-* TODO [4/4] Populate pages with content
-** DONE About
-** DONE Officers
-** DONE Corporate
-** DONE Student
+* TODO [0/4] Populate pages with content
+** TODO About
+** TODO Officers
+** TODO Corporate
+** TODO Student
 For lectures and files we may want to host
+* DONE Create agenda column on main index page
