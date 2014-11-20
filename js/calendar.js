@@ -21,7 +21,7 @@ function get_google_calendar_events() {
 
         /* Parse and render each event */
         jQuery.each(data.items, function(i, item){
-        
+
             if(i == 0) {
                 jQuery("#google-calendar-event-list li").first().hide();
             };
@@ -32,14 +32,14 @@ function get_google_calendar_events() {
             var event_body = jQuery.trim(item.description);
             var event_date = new Date(item.start.dateTime);
             var event_href = item.htmlLink;
-        
+
             if(event_date.getHours() != 0 || event_date.getMinutes() != 0) {
                 event_date = event_date.toString("MMM d @htt");
             } else {
                 /* otherwise format start as date only (without time) */
                 event_date = event_date.toString("MMM d");
             };
-            
+
             /* Render the event */
             jQuery("#google-calendar-event-list li").last().before(
                 '<hr>'
