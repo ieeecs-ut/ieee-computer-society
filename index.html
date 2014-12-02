@@ -3,18 +3,49 @@ layout: default
 title: "Home"
 ---
 
-{% for post in paginator.posts %}
-<article class="box" id="{{ post.title }}">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h2 class="title">{{ post.title }}</h2>
-      <p class="lead">{{ post.date | date:'%B %d, %Y' | replace:' 0',' ' }}</p>
-      {{ post.content }}
-    </div class="panel-body">
-  </div>
-</article>
-{% endfor %}
+<!-- The main content -->
+<div class="row">
 
+  <!-- The posts -->
+  <div class="col-md-8">
+    {% for post in paginator.posts %}
+    <article class="box" id="{{ post.title }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h2 class="title">{{ post.title }}</h2>
+          <p class="lead">{{ post.date | date:'%B %d, %Y' | replace:' 0',' ' }}</p>
+          {{ post.content }}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- The agenda -->
+  <div class="col-md-4">
+    <div class="box" id="calendar">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <ul class="list-group" id="google-calendar-event-list">
+            <h2>Upcoming Events:</h2>
+            <li class="list-group-item">
+              <span class="badge"></span>
+              <h4 class="list-group-item-heading">Loading...</h4>
+              <p class="list-group-item-text">Loading Content...</p>
+            </li>
+            <hr>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+ $(document).ready(get_google_calendar_events());
+</script>
+
+<!-- Paginator stuff -->
 <div class="text-center">
   {% if paginator.total_pages > 1 %}
   <ul class="pagination">
