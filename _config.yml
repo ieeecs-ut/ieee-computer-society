@@ -2,9 +2,7 @@
 title: The IEEE Computer Society
 email: webmaster@ieeecs.ece.utexas.edu
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  The University of Texas at Austin IEEE Student Branch
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://ieeecs.ece.utexas.edu" # the base hostname & protocol for your site
 markdown: redcarpet

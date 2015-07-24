@@ -6,9 +6,9 @@
 ** DONE Officers
 ** DONE Corporate
 ** DONE Student
-* TODO [0/4] Populate pages with content
+* TODO [1/4] Populate pages with content
 ** TODO About
-** TODO Officers
+** DONE Officers
 ** TODO Corporate
 ** TODO Student
 For lectures and files we may want to host
