@@ -37,8 +37,6 @@ function get_google_calendar_events() {
                 event_date = event_date.toString("MMM d @htt");
             } if(event_date.getHours() == 0 || event_date.getMinutes() == 0) {
                 event_date = event_date.toString("MMM d");
-            } if(item.location == 0) {
-                event_location = event_location.toString("UT Austin");
             } else {
                 /* otherwise format start as date only (without time) */
                 event_date = event_date.toString("MMM d");
