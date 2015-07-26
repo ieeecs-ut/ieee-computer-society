@@ -6,7 +6,7 @@ function get_google_calendar_events() {
     var encoded_current_date = encodeURIComponent(current_date);
 
     var calendar_id = "ieeecs.ece.utexas.edu_8qe5qi23uquh7aaop62at4ocjk@group.calendar.google.com";
-    var browser_key = "AIzaSyAYIDjeD1hkvXAAzjn5BbqaFp4h9NA95a4"
+    var browser_key = "AIzaSyBb3rCo6swXRDvmRJiJBiQ_dwakPkDdu_Q"
 
     var calendar_json_url =
         "https://www.googleapis.com/calendar/v3/calendars/" + calendar_id + "/events"
@@ -30,23 +30,26 @@ function get_google_calendar_events() {
             var event_title = item.summary;
             var event_location = item.location;
             var event_body = jQuery.trim(item.description);
-            var event_date = new Date(item.start.dateTime);
+            var event_date_start_finish = new Date(item.start.dateTime);
+            var event_date_all_day = new Date(item.start.date);
+            
+            var is_full_day = (event_date_all_day != 'Invalid Date')
+            var event_date = is_full_day ? event_date_all_day : event_date_start_finish;
+    
             var event_href = item.htmlLink;
 
-            if(event_date.getHours() != 0 || event_date.getMinutes() != 0) {
-                event_date = event_date.toString("MMM d @htt");
-            } if(event_date.getHours() == 0 || event_date.getMinutes() == 0) {
-                event_date = event_date.toString("MMM d");
+            if(is_full_day) {
+                event_date = event_date.toString("MMM d, yyyy");
             } else {
-                /* otherwise format start as date only (without time) */
-                event_date = event_date.toString("MMM d");
+                event_date = event_date.toString("MMM d, yyyy @h:mm tt");
             };
 
+            event_location_string = typeof event_location == 'undefined' ? '' : ' in ' + event_location;
             /* Render the event */
             jQuery("#google-calendar-event-list li").last().before(
                 '<hr>'
                     + '<h4 class="list-group-item-heading"><a href="' + event_href + '">' + event_title + '</a></h4>'
-                    + '<p class="text-muted">' + event_date + ' in ' + event_location + '</p>'
+                    + '<p class="text-muted">' + event_date + event_location_string + '</p>'
                     + '<p class="">' + event_body + '</p>'
             );
         });
