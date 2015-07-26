@@ -6,7 +6,7 @@ function get_google_calendar_events() {
     var encoded_current_date = encodeURIComponent(current_date);
 
     var calendar_id = "ieeecs.ece.utexas.edu_8qe5qi23uquh7aaop62at4ocjk@group.calendar.google.com";
-    var browser_key = "AIzaSyBb3rCo6swXRDvmRJiJBiQ_dwakPkDdu_Q"
+    var browser_key = "AIzaSyAYIDjeD1hkvXAAzjn5BbqaFp4h9NA95a4"
 
     var calendar_json_url =
         "https://www.googleapis.com/calendar/v3/calendars/" + calendar_id + "/events"

@@ -1,6 +1,6 @@
 # Site settings
 title: The IEEE Computer Society
-email: webmaster@ieeecs.ece.utexas.edu
+email: secretary@ieeecs.ece.utexas.edu
 description: > # this means to ignore newlines until "baseurl:"
   The University of Texas at Austin IEEE Student Branch
 baseurl: "" # the subpath of your site, e.g. /blog/
