@@ -1,3 +1,5 @@
+/* Created by Jenny Plunkett on 2015-07-25 */
+
 <?php 
 $myemail = 'secretary@ieeecs.ece.utexas.edu';//<-----Put Your email address here.
 
@@ -26,22 +28,3 @@ $packet = $_POST['packet'];
 	header('Location: thank-you.html');
 
 ?>
-
-</body>
-</html>
-$errors = '';
-
-if(empty($_POST['name'])  || 
-   empty($_POST['company'])  || 
-   empty($_POST['email']) || 
-   empty($_POST['message']))
-{
-    $errors .= "\n Error: all fields are required";
-}
-
-if (!preg_match(
-"/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", 
-$email_address))
-{
-    $errors .= "\n Error: Invalid email address";
-}
