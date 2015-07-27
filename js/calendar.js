@@ -46,8 +46,6 @@ function get_google_calendar_events() {
             event_date_all_day.setHours(0); //set to 00:00:00 GMT-0600, midnight for all day-events
 
             if(is_full_day) {
-                console.log(item.start.date);
-                console.log(event_date_all_day);
                 event_date = event_date_all_day.toString("dddd, MMMM d");
             } else {
                 event_date = event_date.toString("dddd, MMMM d @ h:mm tt");
