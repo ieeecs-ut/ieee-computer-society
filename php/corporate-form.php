@@ -1,13 +1,13 @@
 /* Created by Jenny Plunkett on 2015-07-25 */
 
 <?php 
-$myemail = 'secretary@ieeecs.ece.utexas.edu';//<-----Put Your email address here.
+    $myemail = 'secretary@ieeecs.ece.utexas.edu';
 
-$name = $_POST['name']; 
-$company = $_POST['company'];
-$email_address = $_POST['email']; 
-$message = $_POST['message']; 
-$packet = $_POST['packet'];
+    $name = $_POST['name']; 
+    $company = $_POST['company'];
+    $email_address = $_POST['email']; 
+    $message = $_POST['message']; 
+    $packet = $_POST['packet'];
 
 	$to = $myemail; 
 	$email_subject = "Corporate Contact Form: $name";
@@ -25,6 +25,6 @@ $packet = $_POST['packet'];
 	mail($to,$email_subject,$email_body,$headers);
 
 	//redirect to the 'thank you' page
-	header('Location: thank-you.html');
+	header('Location: /thank-you.html');
 
 ?>
