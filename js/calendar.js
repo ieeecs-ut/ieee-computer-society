@@ -26,6 +26,10 @@ function get_google_calendar_events() {
                 jQuery("#google-calendar-event-list li").first().hide();
             };
 
+            if (i > 5) {
+                return;
+            }
+            
             /* Read the values in */
             var event_title = item.summary;
             var event_location = item.location;
