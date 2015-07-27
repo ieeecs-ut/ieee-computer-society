@@ -13,8 +13,8 @@ title: "Home"
       <div class="panel panel-default">
         <div class="panel-body">
           <h2 class="title">{{ post.title }}</h2>
-          <p class="lead">{{ post.date | date:'%B %d, %Y' | replace:' 0',' ' }}</p>
-          {{ post.content }}
+          <span><p class="lead">{{ post.date | date:'%B %d, %Y' | replace:' 0',' ' }}</p>
+              {{ post.content }}</span>
         </div>
       </div>
     </article>
