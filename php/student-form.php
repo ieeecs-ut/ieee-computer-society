@@ -19,7 +19,7 @@
     Email: $email_address \n 
     Student Classification: $classification \n
     Message:\n
-        $email_body \n
+        $message \n
     Role Interested In: $role \n
     Availability: $availability \n";
 
