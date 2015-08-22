@@ -36,8 +36,9 @@ function get_google_calendar_events() {
             var event_date_start_finish = new Date(item.start.dateTime);
             var event_date_all_day = new Date(item.start.date);
             
-            var is_full_day = (event_date_all_day !== 'Invalid Date');
-            var event_date = is_full_day ? event_date_all_day : event_date_start_finish;
+            if (event_date_all_day != 'Invalid Date') {
+                is_full_day = 0;
+            } else { is_full_day = 1; }
     
             var event_href = item.htmlLink;
             
@@ -45,10 +46,11 @@ function get_google_calendar_events() {
             event_date_all_day.setDate(day+1); //fixed bug where all-day events would be listed as the day before
             event_date_all_day.setHours(0); //set to 00:00:00 GMT-0600, midnight for all day-events
 
-            if(is_full_day) {
-                event_date = event_date_all_day.toString("dddd, MMMM d");
-            } else {
-                event_date = event_date.toString("dddd, MMMM d @ h:mm tt");
+            if(is_full_day == 1) {
+                var event_date = event_date_start_finish.toString("dddd, MMMM d @ h:mm tt");
+                
+            } else if (is_full_day == 0) {
+                var event_date = event_date_all_day.toString("dddd, MMMM d");
             };
 
             event_location_string = typeof event_location == 'undefined' ? '' : ' in ' + event_location;
