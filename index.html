@@ -12,7 +12,7 @@ title: "UT IEEE Computer Society"
     <article class="box" id="{{ post.title }}">
       <div class="panel panel-default">
         <div class="panel-body">
-          <h2 class="title">{{ post.title }}</h2>
+          <h2 class="title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
           <span><p class="lead">{{ post.date | date:'%B %d, %Y' | replace:' 0',' ' }}</p>
               {{ post.content }}</span>
         </div>
