@@ -1,7 +1,7 @@
 /* Created by Jenny Plunkett on 2015-07-25 */
 
 <?php 
-    $myemail = 'secretary@ieeecs.ece.utexas.edu';
+    $myemail = 'president@ieeecs.ece.utexas.edu';
 
     $name = $_POST['name']; 
     $company = $_POST['company'];
