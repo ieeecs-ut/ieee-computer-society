@@ -9,6 +9,5 @@ markdown: redcarpet
 highlighter: pygments
 paginate: 3
 paginate-path: "/page:num"
-permalink: /:title
 gems:
     - jekyll-paginate
