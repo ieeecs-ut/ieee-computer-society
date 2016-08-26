@@ -50,7 +50,7 @@ function get_google_calendar_events() {
             var event_date;
             var event_href = item.htmlLink;
             var event_location_string;
-            var is_full_day = isNaN(event_date_all_day.getTime()) ? true : false;
+            var is_full_day = isNaN(event_date_all_day) ? true : false;
 
             /* fixes bug where all-day events would be listed as the day before */
             event_date_all_day.setDate(event_date_all_day.getDate()+1);
