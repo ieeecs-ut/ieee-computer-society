@@ -19,6 +19,16 @@ function get_google_calendar_events() {
     /* Get list of upcoming events formatted in JSON */
     jQuery.getJSON(calendar_json_url, function(data) {
 
+        /* No events found */
+        if (data.items.length === 0) {
+            jQuery("#google-calendar-event-list li").first().hide();
+            jQuery("#google-calendar-event-list li").last().before(
+                '<hr>'
+                    + '<h4 class="list-group-item-heading">No Events</h4>'
+                    + '<p class="text-muted">We don\'t have any events soon.</p>'
+            );
+        }
+
         /* Parse and render each event */
         jQuery.each(data.items, function(i, item) {
 
