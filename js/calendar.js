@@ -19,6 +19,16 @@ function get_google_calendar_events() {
     /* Get list of upcoming events formatted in JSON */
     jQuery.getJSON(calendar_json_url, function(data) {
 
+        /* No events found */
+        if (data.items.length === 0) {
+            jQuery("#google-calendar-event-list li").first().hide();
+            jQuery("#google-calendar-event-list li").last().before(
+                '<hr>'
+                    + '<h4 class="list-group-item-heading">No Events</h4>'
+                    + '<p class="text-muted">We don\'t have any events soon.</p>'
+            );
+        }
+
         /* Parse and render each event */
         jQuery.each(data.items, function(i, item) {
 
@@ -27,7 +37,7 @@ function get_google_calendar_events() {
             };
 
             if (i > 5) { return; } ;
-            
+
             /* Read the values in */
             var event_title = item.summary;
             var event_timezone = item.start.timezone;
@@ -35,23 +45,23 @@ function get_google_calendar_events() {
             var event_body = jQuery.trim(item.description);
             var event_date_start_finish = new Date(item.start.dateTime);
             var event_date_all_day = new Date(item.start.date);
-            
-            if (event_date_all_day != 'Invalid Date') {
-                is_full_day = 0;
-            } else { is_full_day = 1; }
-    
-            var event_href = item.htmlLink;
-            
-            var day = event_date_all_day.getDate();
-            event_date_all_day.setDate(day+1); //fixed bug where all-day events would be listed as the day before
-            event_date_all_day.setHours(0); //set to 00:00:00 GMT-0600, midnight for all day-events
 
-            if(is_full_day == 1) {
-                var event_date = event_date_start_finish.toString("dddd, MMMM d @ h:mm tt");
-                
-            } else if (is_full_day == 0) {
-                var event_date = event_date_all_day.toString("dddd, MMMM d");
-            };
+            /* These will be used while rendering */
+            var event_date;
+            var event_href = item.htmlLink;
+            var event_location_string;
+            var is_full_day = isNaN(event_date_all_day) ? true : false;
+
+            /* fixes bug where all-day events would be listed as the day before */
+            event_date_all_day.setDate(event_date_all_day.getDate()+1);
+            /* set to 00:00:00 GMT-0600, midnight for all day-events */
+            event_date_all_day.setHours(0);
+
+            if(is_full_day) {
+                event_date = event_date_start_finish.toString("dddd, MMMM d @ h:mm tt");
+            } else {
+                event_date = event_date_all_day.toString("dddd, MMMM d");
+            }
 
             event_location_string = typeof event_location == 'undefined' ? '' : ' in ' + event_location;
             /* Render the event */
