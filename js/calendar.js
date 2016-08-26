@@ -27,7 +27,7 @@ function get_google_calendar_events() {
             };
 
             if (i > 5) { return; } ;
-            
+
             /* Read the values in */
             var event_title = item.summary;
             var event_timezone = item.start.timezone;
@@ -35,20 +35,20 @@ function get_google_calendar_events() {
             var event_body = jQuery.trim(item.description);
             var event_date_start_finish = new Date(item.start.dateTime);
             var event_date_all_day = new Date(item.start.date);
-            
+
             if (event_date_all_day != 'Invalid Date') {
                 is_full_day = 0;
             } else { is_full_day = 1; }
-    
+
             var event_href = item.htmlLink;
-            
+
             var day = event_date_all_day.getDate();
             event_date_all_day.setDate(day+1); //fixed bug where all-day events would be listed as the day before
             event_date_all_day.setHours(0); //set to 00:00:00 GMT-0600, midnight for all day-events
 
             if(is_full_day == 1) {
                 var event_date = event_date_start_finish.toString("dddd, MMMM d @ h:mm tt");
-                
+
             } else if (is_full_day == 0) {
                 var event_date = event_date_all_day.toString("dddd, MMMM d");
             };
