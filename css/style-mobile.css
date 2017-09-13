@@ -1,0 +1,387 @@
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+
+	body
+	{
+		line-height: 1.75em;
+		font-size: 10pt;
+		letter-spacing: 0;
+		min-width: 320px;
+	}
+
+	h2, h3, h4, h5, h6
+	{
+		font-size: 13pt;
+		margin: 0 0 1em 0;
+	}
+
+	section,
+	article
+	{
+		clear: both;
+		margin-bottom: 3em !important;
+	}
+
+	article:last-of-type
+	{
+		margin-bottom: 0 !important;
+	}
+	
+	section.last,
+	article.last
+	{
+		margin-bottom: 0 !important;
+	}
+
+	.image-left
+	{
+		width: 25%;
+		margin-bottom: 2em !important;
+	}
+	
+	.button
+	{
+		width: 100%;
+		text-align: center;
+		font-size: 1.35em;
+		padding: .4em 0 .4em 0 !important;
+	}
+
+		.button.fa
+		{
+			padding-right: 0.75em !important;
+		}
+
+			.button.fa:before
+			{
+				margin-right: 0.5em;
+				top: 0.05em;
+			}
+
+	.box
+	{
+		padding: 15px 15px 15px 15px;
+		margin: 0;
+	}		
+
+	.box-feature
+	{
+		margin: 20px 0 0 0 !important;
+		padding: 0;
+	}
+	
+		.box-feature .inner
+		{
+			padding: 30px 15px 30px 15px;
+		}
+		
+		.box-feature p
+		{
+			margin: 0;
+		}
+
+		.box-feature .image
+		{
+			position: relative;
+			margin: 0;
+		}
+
+			.box-feature .image img
+			{
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+	.card
+	{
+		width: 20em;
+	}
+
+	.card-holder
+	{
+		width: 20em;
+		height: 26em;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		display: block;
+	}		
+
+/*********************************************************************************/
+/* Widgets                                                                       */
+/*********************************************************************************/
+
+	.widget-thumbnails
+	{
+	}
+
+		.widget-thumbnails .image
+		{
+			margin: 0;
+		}
+	
+		.widget-thumbnails .x
+		{
+			padding: 1em 0.5em 0 0;
+		}
+	
+		.widget-thumbnails .y
+		{
+			padding: 1em 0 0 0.5em;
+		}
+
+		.widget-thumbnails .row:first-child .x,
+		.widget-thumbnails .row:first-child .y
+		{
+			padding-top: 0;
+		}
+
+	
+	.widget-contact-mobi
+	{
+		text-align: center;
+	}
+	
+		.widget-contact-mobi ul
+		{
+			overflow: hidden;
+			position: relative;
+			margin-bottom: 0.5em;
+		}
+		
+			.widget-contact-mobi ul li
+			{
+				display: inline-block;
+				margin-right: .1em;
+				margin-left: .1em;
+			}
+
+				.widget-contact-mobi ul li a
+				{
+					display: inline-block;
+					width: 4.15em;
+					height: 4.15em;
+					line-height: 2.5em;
+					border-radius: 0.35em;
+					outline: 0;
+					opacity: 0.75;
+					-moz-transition: background-color .25s ease-in-out;
+					-webkit-transition: background-color .25s ease-in-out;
+					-o-transition: background-color .25s ease-in-out;
+					-ms-transition: background-color .25s ease-in-out;
+					transition: background-color .25s ease-in-out;
+					background: #555;
+				}
+				
+					.widget-contact-mobi ul li a:before
+					{
+						color: #f3f3f3;
+						font-size: 3em;
+						line-height: 1.5em;
+					}
+
+					.widget-contact-mobi ul li a:hover
+					{
+						background: #333;
+					}	
+
+/*********************************************************************************/
+/* Mobile UI                                                                     */
+/*********************************************************************************/
+
+	#titleBar
+	{
+	}
+
+		#titleBar .title
+		{
+			display: none;
+		}
+
+		#titleBar .toggle
+		{
+			text-indent: -9999px;
+			width: 70px;
+			height: 50px;
+			opacity: 0.35;
+		}
+
+			#titleBar .toggle:before
+			{
+				content: '';
+				position: absolute;
+				left: 6px;
+				top: 6px;
+				background: rgba(0,0,0,0.5);
+				width: 58px;
+				height: 38px;
+				border-radius: 6px;
+			}
+
+			#titleBar .toggle:after
+			{
+				content: '';
+				position: absolute;
+				left: 21px;
+				top: 20px;
+				width: 44px;
+				height: 44px;
+				background: url('images/mobileUI-site-nav-opener-bg.svg') 0 0 no-repeat;
+			}
+
+			#titleBar .toggle:active
+			{
+				opacity: 0.75;
+			}
+
+	#navPanel
+	{
+		background: #fff;
+		box-shadow: inset -3px 0px 0px 0px #dfdfdf;
+		padding: 0 23px 0 20px;
+	}
+
+		#navPanel .link
+		{
+			display: block;
+			text-decoration: none;
+			height: 54px;
+			line-height: 54px;
+			border-top: solid 1px #e8e8e8;
+			font-weight: 800;
+			color: #0053A0;
+		}
+		
+			#navPanel .link:first-child
+			{
+				border-top: 0;
+			}
+
+/*********************************************************************************/
+/* Wrappers                                                                      */
+/*********************************************************************************/
+
+	#header-wrapper
+	{
+		padding: 44px 0 0px 0;
+	}
+	
+	#banner-wrapper
+	{
+		padding: 0 15px 0 15px;
+	}
+	
+	#features-wrapper
+	{
+		padding: 0 15px 40px 15px;
+	}
+	
+	#main-wrapper
+	{
+		padding: 40px 30px 40px 30px;
+	}
+	
+	#footer-wrapper
+	{
+		padding: 0 30px 0 30px;
+	}
+
+/*********************************************************************************/
+/* Logo                                                                          */
+/*********************************************************************************/
+
+	#logo
+	{
+		text-align: center;
+	}
+
+		#logo a
+		{
+			display: inline-block;
+			margin: 0 0 0.2em 0;
+			padding: 0.25em 0.2em 0.25em 0.2em;
+			font-size: 3.25em;
+			letter-spacing: 0.05em;
+		}
+
+/*********************************************************************************/
+/* Nav                                                                           */
+/*********************************************************************************/
+
+	#nav
+	{
+		display: none;
+	}
+
+	#nav-box
+	{
+		display: none;
+	}
+
+/*********************************************************************************/
+/* Contact Info                                                                  */
+/*********************************************************************************/
+
+	#contact-info
+	{
+		display: none;
+	}
+
+/*********************************************************************************/
+/* Content                                                                       */
+/*********************************************************************************/
+
+	#content
+	{
+	}
+
+		body.left-sidebar #content,
+		body.right-sidebar #content
+		{
+			border-bottom: solid 1px #e8e8e8;
+			padding-bottom: 3em;
+			margin-bottom: 2em !important;
+		}
+
+/*********************************************************************************/
+/* Animations                                                                    */
+/*********************************************************************************/
+
+@-webkit-keyframes moveFromRightFade {
+	from { opacity: 0.3; -webkit-transform: translateX(2.5em); }
+}
+@-moz-keyframes moveFromRightFade {
+	from { opacity: 0.3; -moz-transform: translateX(2.5em); }
+}
+@keyframes moveFromRightFade {
+	from { opacity: 0.3; transform: translateX(2.5em); }
+}
+
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+
+	#footer
+	{
+	}
+
+		#footer section
+		{
+			border-bottom: solid 1px #ccc;
+			padding-bottom: 2em;
+			margin-bottom: 2em !important;
+		}
+		
+			#footer section.last
+			{
+				padding-bottom: 0;
+				border-bottom: 0;
+				margin-bottom: 0 !important;
+			}
+
+	#copyright
+	{
+		padding: 2em 0 0 0;
+		border-top: solid 1px #ccc;
+		margin: 4em 0 0 0;
+	}

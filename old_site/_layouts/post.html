@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="post">
+	<div class="panel panel-default">
+		<div class="panel-body">
+            <header class="post-header">
+                <h2 class="post-title">{{ page.title }}</h2>
+                    <p class="lead">{{ page.date | date:'%B %d, %Y' | replace:' 0',' ' }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+            </header>
+            <article class="post-content">
+            {{ content }}
+            </article>
+		</div>
+	</div>
+</div>

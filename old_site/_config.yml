@@ -1,0 +1,13 @@
+# Site settings
+title: The IEEE Computer Society
+email: webmaster@ieeecs.ece.utexas.edu
+description: > # this means to ignore newlines until "baseurl:"
+  The University of Texas at Austin IEEE Student Branch
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://ieeecs.ece.utexas.edu" # the base hostname & protocol for your site
+markdown: redcarpet
+highlighter: pygments
+paginate: 3
+paginate-path: "/page:num"
+gems:
+    - jekyll-paginate

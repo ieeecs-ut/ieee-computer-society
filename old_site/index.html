@@ -1,0 +1,86 @@
+---
+layout: default
+title: "UT IEEE Computer Society"
+---
+
+<!-- The main content -->
+<div class="row">
+
+  <!-- The posts -->
+  <div class="col-md-8">
+    {% for post in paginator.posts %}
+    <article class="box" id="{{ post.title }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h2 class="title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+          <span><p class="lead">{{ post.date | date:'%B %d, %Y' | replace:' 0',' ' }}</p>
+              {{ post.content }}</span>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- The agenda -->
+  <div class="col-md-4">
+    <div class="box" id="calendar">
+      <div class="panel panel-default">
+        <div class="panel-body" style="margin-bottom:-1.75em">
+          <ul class="list-group" id="google-calendar-event-list">
+            <h2>Upcoming Events</h2>
+            <li class="list-group-item">
+              <span class="badge"></span>
+              <h4 class="list-group-item-heading">Loading...</h4>
+              <p class="list-group-item-text">Loading Content...</p>
+            </li>
+            <hr>
+          </ul>
+        <!-- Social Media -->
+          <div class="list-group">
+            <h4><!-- <span style="margin-right:.1em">Social Media:</span> -->
+            <span style="margin-right:.2em"><a href="https://www.facebook.com/ieeecs.ece.utexas"><i class="fa fa-facebook-square solo fa-lg"></i></a></span>
+            <span style="margin-right:.2em"><a href="https://twitter.com/ieeeCS_UT"><i class="fa fa-twitter-square solo fa-lg"></i></a></span>
+            <span style="margin-right:.2em"><a href="https://github.com/cpusoc/ieee-computer-society"><i class="fa fa-github-square solo fa-lg"></i></a></span>
+            <span style="margin-right:.2em"><a href="https://utexas.collegiatelink.net/organization/ieeecomputersociety"><i class="fa fa-external-link-square solo fa-lg"></i></a></span>
+            <span style="margin-right:.2em"><a href="mailto:secretary@ieeecs.ece.utexas.edu"><i class="fa fa-envelope-square solo fa-lg"></i></a></span>
+            <span style="margin-right:.2em"><a href="https://utexas.edu"><i class="fa fa-university solo"></i></a></span>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+ $(document).ready(get_google_calendar_events());
+</script>
+
+<!-- Paginator stuff -->
+<div class="text-center">
+  {% if paginator.total_pages > 1 %}
+  <ul class="pagination">
+    {% if paginator.previous_page %}
+    <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a></li>
+    {% else %}
+    <li class="disabled"><a href="#">&laquo; Prev</a>
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+      <li class="active"><a href="#">{{ page }}</a></li>
+      {% elsif page == 1 %}
+      <li><a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+      {% else %}
+      <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+      {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+      <li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a></li>
+      {% else %}
+      <li class="disabled"><a href="#">Next &raquo;</a href="#"></li>
+      {% endif %}
+  </ul>
+  {% endif %}
+</div>
