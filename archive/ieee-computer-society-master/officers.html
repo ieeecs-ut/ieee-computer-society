@@ -1,0 +1,118 @@
+---
+layout: default
+title: "Officers"
+js: [/js/imagesloaded.js, /js/animonscroll.js]
+---
+<h2>Officers</h2>
+<div class="card-holder">
+	<div class="card">
+		<img src="/images/officers/shyam.jpg" />
+		<header>Shyam Sabhaya</header>
+		<p>president@ieeecs.ece.utexas.edu</p>
+	</div>
+</div>
+<div class="card-holder middle">
+	<div class="card">
+		<img src="/images/officers/karthik.jpg" />
+		<header>Karthik Konath</header>
+		<p>vicepresident@ieeecs.ece.utexas.edu</p>
+	</div>
+</div>
+<div class="card-holder">
+	<div class="card">
+		<img src="/images/officers/bobby.jpg" />
+		<header>Bobby Streit</header>
+		<p>projectmanager@ieeecs.ece.utexas.edu</p>
+	</div>
+</div>
+<div class="card-holder">
+	<div class="card">
+		<img src="/images/officers/phyllis.jpg" />
+		<header>Phyllis Ang</header>
+		<p>treasurer@ieeecs.ece.utexas.edu</p>
+	</div>
+</div>
+<div class="card-holder middle">
+	<div class="card">
+		<img src="/images/officers/jenny.jpg" />
+		<header>Jenny Plunkett</header>
+		<p>webmaster@ieeecs.ece.utexas.edu</p>
+	</div>
+</div>
+
+<script>
+	new AnimOnScroll( document.getElementById( 'content' ), {
+		minDuration : 0.4,
+		maxDuration : 0.7,
+		viewportFactor : 0.2
+	} );
+</script>
+
+<script>
+	var isAnimating = false;
+
+	function cardSwap (num, evt) {
+
+		if(isAnimating) { return false; }
+		isAnimating = true;
+
+		switch(num) {
+			case 2:
+				var $front = $(this).children("div.front"),
+					$mid = $(this).children("div.mid");
+
+				$front.bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+					$mid.removeClass("mid").addClass("front");
+					$front.unbind();
+					$front.removeClass("front").removeClass("card-rotateFall").addClass("mid").addClass("card-moveFromRight");
+					isAnimating = false;
+				});
+
+				$front.addClass("card-rotateFall");
+
+				break;
+			case 5:
+				var $front = $(this).children("div.front"),
+					$mid = $(this).children("div.mid"),
+					$back = $(this).children("div.back"),
+					$hid1 = $(this).children("div.hid1"),
+					$hid2 = $(this).children("div.hid2");
+
+				$front.bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+					$mid.removeClass("mid").addClass("front");
+					$back.removeClass("back").addClass("mid");
+					$hid1.removeClass("hid1").addClass("back").addClass("card-moveFromRight");
+					$hid2.removeClass("hid2").addClass("hid1");
+					$front.unbind();
+					$front.removeClass("front").removeClass("card-rotateFall").addClass("hid2");
+					isAnimating = false;
+				});
+
+				$front.addClass("card-rotateFall");
+
+				break;
+			case 3:
+				var $front = $(this).children("div.front"),
+					$mid = $(this).children("div.mid"),
+					$back = $(this).children("div.back");
+
+				$front.bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+					$mid.removeClass("mid").addClass("front");
+					$back.removeClass("back").addClass("mid");
+					$front.unbind();
+					$front.removeClass("front").removeClass("card-rotateFall").addClass("back").addClass("card-moveFromRight");
+					isAnimating = false;
+				});
+
+				$front.addClass("card-rotateFall");
+				break;
+		}
+	}
+
+	$(document).ready(function(){
+		$("#mp-cards").on('click', function() { cardSwap.call(this, 3); });
+		$("#ae-cards").on('click', function() { cardSwap.call(this, 5); });
+		$("#mr-cards").on('click', function() { cardSwap.call(this, 2); });
+		$("#sec-cards").on('click', function() { cardSwap.call(this, 3); });
+	});
+</script>

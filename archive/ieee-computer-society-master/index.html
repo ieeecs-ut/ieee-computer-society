@@ -1,0 +1,43 @@
+---
+layout: default
+title: "Home"
+---
+{% for post in paginator.posts %}
+<article class="box" id="{{ post.title }}">
+	<h2 class="title">{{ post.title }}</h2>
+	<p class="byline">{{ post.date | date:'%B %d, %Y' | replace:' 0',' ' }} — {{ post.author }}</p>
+	{{ post.content }}
+</article>
+{% endfor %}
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Next</a>
+  {% else %}
+    <span>&laquo; Next</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <em>{{ page }}</em>
+    {% elsif page == 1 %}
+      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Prev &raquo;</a>
+  {% else %}
+    <span>Prev &raquo;</span>
+  {% endif %}
+</div>
+{% endif %}
+<script>
+  function showSlides(slideId, presId) {
+    document.getElementById(slideId).getElementsByTagName('div')[0].style.display = 'none';
+    document.getElementById(slideId).getElementsByTagName('iframe')[0].src = 'https://docs.google.com/a/ieee.ece.utexas.edu/presentation/d/' + presId + '/embed?start=false&amp;loop=false&amp;delayms=5000';
+    document.getElementById(slideId).getElementsByTagName('iframe')[0].style.display = 'inline';
+  }
+</script>
